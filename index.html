@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang=en>
+   <head>
+      <meta charset=utf-8>
+      <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name=robots content="index, follow">
+      <meta name=description content="API Reference">
+      <title>API Reference</title>
+      <link rel=icon href=images/bookmark.png>
+      <link href=css/screen.css rel=stylesheet media=screen>
+      <link href=css/print.css rel=stylesheet media=print>
+      <link href=css/highlight-monokai.css rel=stylesheet media=screen,print>
+      <script src=js/all.js></script>
+   </head>
+   <body class="" data-languages="[&#34;bash&#34;]">
+      <a href=# id=nav-button>
+         <span>NAV <img alt=navbar class=image-navbar src=images/navbar.png></span>
+      </a>
+      <div class=tocify-wrapper>
+         <img alt=logo class=image-logo src=images/logo.png>
+         <div class=lang-selector>
+            <a href=# data-language-name="bash">bash</a>
+         </div>
+         <div class=search>
+            <input type=text class=search id=input-search placeholder="Search">
+         </div>
+         <ul class=search-results></ul>
+         <div id=toc></div>
+         <ul class=toc-footer>
+            <li><a href=https://github.com/center-key/node-slate>node-slate on GitHub</a></li>
+            <li><a href=https://www.npmjs.com/package/node-slate>Documentation powered by Slate</a></li>
+         </ul>
+      </div>
+      <div class=page-wrapper>
+         <div class=dark-box></div>
+         <div class=content>
+            <h1 id="autenticação">Autenticação</h1>
+            <h2 id="login">Login</h2>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/login&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;QCAefzdIng24u1BSkuu8...&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;user&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Jhonata Bonadio&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jhonbonadio@gmail.com&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cpf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;07169305100&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5561999481240&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;avatarUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">null</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-06T16:08:23.475Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-06T16:08:23.475Z&quot;</span>
+    <span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>O comando acima com o &quot;preLogin&quot; retorna JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jhonbonadio@gmail.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5561999481240&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;devices&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2e589417-148f-4266-abe7-42634c52c28b&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;ownerId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;deviceId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;9a662c2228ed37a9&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;deviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SM-A107M&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;confirmed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T17:40:39.470Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T17:40:39.470Z&quot;</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>Algumas rotas exigem que o usuário esteja conectado, como por exemplo, a rota de mostrar os cupons ou a rota de comprar um cupom. Para isso, é necessário que o usuário esteja conectado na aplicação.</p>
+            <p>Ao lado, está um exemplo de login e a resposta que deve ser mostrada se ocorrer tudo bem.</p>
+            <p>Será gerado um Bearer Token, mas você pode remover o &quot;Bearer&quot; da frente que irá funcionar normalmente.</p>
+            <h3 id="http-request">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/login</code></p>
+            <h3 id="url-parameters">URL Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>email</td>
+                     <td>E-mail de acesso do usuário</td>
+                  </tr>
+                  <tr>
+                     <td>password</td>
+                     <td>Senha de acesso do usuário</td>
+                  </tr>
+                  <tr>
+                     <td>preLogin</td>
+                     <td>Verificar se é um login temporário ou não</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h3 id="pre-login">Pre Login</h3>
+            <p>Caso o parâmetro preLogin seja falso, será gerado o token de autenticação normalmente, caso contrário, irá gerar uma resposta sem gerar token, mostrando os dispositivos do usuário que está tentando autenticar na aplicação. </p>
+            <p>Isso serve para verificar se o usuário que está entrando tem o dispositivo cadastrado, caso não tenha, será feita uma série de verificações no aplicativo e no final irá cadastrar o dispositivo do usuário e fazer o login sem o &quot;preLogin&quot;.</p>
+            <aside class=warning> O token não pode ter data de expiração, pois a aplicativo usa o conceito de offline first. </aside>
+            <h1 id="cadastro-de-usuário">Cadastro de usuário</h1>
+            <h2 id="verificação-de-cpf">Verificação de CPF</h2>
+            <p>Como o cadastro no aplicativo é feito por etapas, será necessário criar algumas rotas para fazer a busca no banco de dados e validar os dados.</p>
+            <h3 id="http-request-1">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/verifyCpfExists</code></p>
+            <h3 id="url-parameters-1">URL Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>cpf</td>
+                     <td>CPF informado pelo usuário no momento do cadastro</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h3 id="cpf-already-exists">CPF already exists</h3>
+            <p><code>{     &quot;error&quot;: &quot;User already exists&quot; }</code></p>
+            <h3 id="invalid-cpf">Invalid CPF</h3>
+            <p><code>{     &quot;error&quot;: &quot;Cpf invalid&quot; }</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/verifyCpfExists&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um staus: 200 OK</p>
+            </blockquote>
+            <pre class="highlight json"><code>No body returned for response</code></pre>
+            <h2 id="verificação-de-e-mail">Verificação de E-mail</h2>
+            <h3 id="http-request-2">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/verifyEmailExists</code></p>
+            <h3 id="url-parameters-2">URL Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>email</td>
+                     <td>E-mail informado pelo usuário no momento do cadastro</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h3 id="e-mail-already-exists">E-Mail already exists</h3>
+            <p><code>{     &quot;error&quot;: &quot;User already exists&quot; }</code></p>
+            <h3 id="e-mail-incorrect">E-mail incorrect</h3>
+            <p><code>{     &quot;error&quot;: &quot;Email incorrect&quot; }</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/verifyEmailExists&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um staus: 200 OK</p>
+            </blockquote>
+            <pre class="highlight json"><code>No body returned for response</code></pre>
+            <h2 id="verificação-de-telefone">Verificação de telefone</h2>
+            <h3 id="http-request-3">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/verifyPhoneExists</code></p>
+            <h3 id="url-parameters-3">URL Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>phone</td>
+                     <td>Telefone informado pelo usuário no momento do cadastro</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h3 id="e-mail-already-exists-1">E-Mail already exists</h3>
+            <p><code>{     &quot;error&quot;: &quot;User already exists&quot; }</code></p>
+            <h3 id="e-mail-incorrect-1">E-mail incorrect</h3>
+            <p><code>{     &quot;error&quot;: &quot;Phone incorrect&quot; }</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/verifyPhoneExists&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um staus: 200 OK</p>
+            </blockquote>
+            <pre class="highlight json"><code>No body returned for response</code></pre>
+            <h2 id="cadastro-do-usuário">Cadastro do usuário</h2>
+            <p>Se todas as informações estiverem OK, o usuário pode ser inserido no banco de dados.</p>
+            <h3 id="http-request-4">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/users</code></p>
+            <h3 id="url-parameters-4">URL Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Description</th>
+                     <th>Default</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>name</td>
+                     <td>Nome do usuário</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>email</td>
+                     <td>E-mail do usuário</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>cpf</td>
+                     <td>CPF do usuário</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>phone</td>
+                     <td>Telefone do usuário</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>password</td>
+                     <td>Senha do usuário</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <h3 id="e-mailcpfphone-already-exists">E-mail/CPF/Phone already exists</h3>
+            <p><code>{     &quot;error&quot;: &quot;User already exists&quot; }</code></p>
+            <h3 id="e-mailphone-incorrect">E-mail/Phone incorrect</h3>
+            <p><code>{     &quot;error&quot;: &quot;E-mail/Phone incorrect&quot; }</code></p>
+            <h3 id="cpf-invalid">CPF invalid</h3>
+            <p><code>{     &quot;error&quot;: &quot;CPF invalid&quot; }</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/users&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cd93d109-5a12-4d82-87d1-8facc4751f58&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Jhonata Henrique Lima BOnadio&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jhonbonadio@gmail.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cpf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;07169305100&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5561999481240&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T15:11:00.544Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T15:11:00.544Z&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h1 id="cupons">Cupons</h1>
+            <h2 id="listar-cupons-do-usuário">Listar cupons do usuário</h2>
+            <p>Para listar os cupons, o usuário deve estar conectado na aplicação e deve ser inserido o token de autorização no cabeçalho da requisição.</p>
+            <p>Esse token é obtido na rota /login</p>
+            <h3 id="http-request-5">HTTP Request</h3>
+            <p><code>GET https://barataoapi.herokuapp.com/vouchers</code></p>
+            <h3 id="headers">Headers</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Header</th>
+                     <th>Value</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Authorization</td>
+                     <td>Token</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class=success> É preciso informar o token no cabeçalho, esse token não pode ser expirado. </aside>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/vouchers&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span>
+-H <span class="hljs-string">&quot;Authorization: Token&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;34ef7f02-8d8c-4c1b-a38a-f2290c277070&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fuelId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4edf806f-b29d-41d6-88e8-046a4a12661e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fuelImage&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://www.barataocombustiveis.com.br/assets/gasolina-aditivada-33783dc4d53a76965ba7e401a3743f458f69b5ce0d1b7f4539570a42e57d1d71.png&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ownerId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Gasolina Aditivada&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;liters&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;15&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;94.65&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;region&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:19:44.155Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:19:44.155Z&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span></code></pre>
+            <h2 id="adicionar-cupom-na-conta-do-usuário">Adicionar cupom na conta do usuário</h2>
+            <h3 id="http-request-6">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/vouchers</code></p>
+            <h3 id="headers-1">Headers</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Header</th>
+                     <th>Value</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Authorization</td>
+                     <td>Token</td>
+                  </tr>
+               </tbody>
+            </table>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Paramter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ownerId</td>
+                     <td>ID do usuário que adquiriu o voucher</td>
+                  </tr>
+                  <tr>
+                     <td>fuelId</td>
+                     <td>ID do combustível</td>
+                  </tr>
+                  <tr>
+                     <td>fuelImage</td>
+                     <td>Imagem do combustível</td>
+                  </tr>
+                  <tr>
+                     <td>name</td>
+                     <td>Nome do combustível</td>
+                  </tr>
+                  <tr>
+                     <td>liters</td>
+                     <td>Litros</td>
+                  </tr>
+                  <tr>
+                     <td>value</td>
+                     <td>Valor pago</td>
+                  </tr>
+                  <tr>
+                     <td>region</td>
+                     <td>Região (DF, GO...)</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class=success> É preciso informar o token no cabeçalho, esse token não pode ser expirado. </aside>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/vouchers&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span>
+-H <span class="hljs-string">&quot;Authorization: Token&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bd68af3b-dc75-4ec9-82af-bc16ec8072a2&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fuelId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4edf806f-b29d-41d6-88e8-046a4a12661e&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;fuelImage&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://www.barataocombustiveis.com.br/assets/gasolina-aditivada-33783dc4d53a76965ba7e401a3743f458f69b5ce0d1b7f4539570a42e57d1d71.png&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;ownerId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Gasolina Aditivada&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;liters&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;15&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;94.65&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;region&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:23:51.932Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:23:51.932Z&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h1 id="devices">Devices</h1>
+            <h2 id="cadastrar-dispositivo">Cadastrar dispositivo</h2>
+            <p>Cadastrar o dispositivo na conta do usuário.</p>
+            <h3 id="http-request-7">HTTP Request</h3>
+            <p><code>POST https://barataoapi.herokuapp.com/devices</code></p>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Paramter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ownerId</td>
+                     <td>ID do usuário</td>
+                  </tr>
+                  <tr>
+                     <td>deviceId</td>
+                     <td>ID do dispositivo</td>
+                  </tr>
+                  <tr>
+                     <td>deviceName</td>
+                     <td>Nome do dispositivo</td>
+                  </tr>
+                  <tr>
+                     <td>confirmed</td>
+                     <td>Dispositivo confirmado</td>
+                  </tr>
+               </tbody>
+            </table>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/devices&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4c3ee4e1-d3cc-40d4-9239-d4c2d9b8df49&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;ownerId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;deviceId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ID830FKD_1984HKD2_FFGH7763&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;deviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;iPhone 12&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;confirmed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:27:06.953Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:27:06.953Z&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h2 id="listar-dispositivos">Listar Dispositivos</h2>
+            <p>Listar os dispositivos cadastrados</p>
+            <h3 id="http-request-8">HTTP Request</h3>
+            <p><code>GET https://barataoapi.herokuapp.com/devices</code></p>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Header</th>
+                     <th>Value</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Authorization</td>
+                     <td>Token</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class=success> É preciso informar o token no cabeçalho, esse token não pode ser expirado. </aside>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/devices&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span>
+-H <span class="hljs-string">&quot;Authorization: Token&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2e589417-148f-4266-abe7-42634c52c28b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ownerId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;deviceId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;9a662c2228ed37a9&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;deviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SM-A107M&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;confirmed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T17:40:39.470Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T17:40:39.470Z&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span></code></pre>
+            <h1 id="combustíveis">Combustíveis</h1>
+            <h2 id="listar-combustíveis">Listar combustíveis</h2>
+            <p>Listar combustíveis no aplicativo</p>
+            <h3 id="http-request-9">HTTP Request</h3>
+            <p><code>GET https://barataoapi.herokuapp.com/fuels</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/fuels&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;efba902c-23d9-4317-9e09-aa4cdac881f8&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;popular&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Etanol&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;regularPrice&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;6.49&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5.39&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;region&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;imageUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://www.barataocombustiveis.com.br/assets/etanol-793cedf38c598cb250953800a35b36f5c3de232b843687e882aefacea8a49bd3.png&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:49:39.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:49:39.000Z&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2dc966b1-9b6c-46a0-b639-4244a623adf5&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;popular&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Diesel Comum&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;regularPrice&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5.64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5.05&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;region&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;imageUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://www.barataocombustiveis.com.br/assets/diesel-comum-6a87165e6a5a74c4b8b10793a8e009cad1309d4b224d2e55c59455802b50db94.png&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:50:55.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:50:55.000Z&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span></code></pre>
+            <h1 id="usuário">Usuário</h1>
+            <h2 id="atualizar-dados-do-usuário">Atualizar dados do usuário</h2>
+            <h3 id="http-request-10">HTTP Request</h3>
+            <p><code>PUT https://barataoapi.herokuapp.com/users</code></p>
+            <h3 id="headers-2">Headers</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Header</th>
+                     <th>Value</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Authorization</td>
+                     <td>Token</td>
+                  </tr>
+               </tbody>
+            </table>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Paramter</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>phone</td>
+                     <td>Novo número</td>
+                  </tr>
+                  <tr>
+                     <td>email</td>
+                     <td>Novo e-mail</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class=success> É preciso informar o token no cabeçalho, esse token não pode ser expirado. </aside>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/users&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span>
+-H <span class="hljs-string">&quot;Authorization: Token&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cab1fb14-84d1-4e4e-b2e1-83fab1e74fc7&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Jhonata Bonadio&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jhonbonadio@gmail.com&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cpf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;07169305100&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5561985553370&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;avatarUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">null</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-06T16:08:23.475Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-17T18:35:31.235Z&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h1 id="postos-credenciados">Postos credenciados</h1>
+            <h2 id="listar-postos-credenciados">Listar postos credenciados</h2>
+            <h3 id="http-request-11">HTTP Request</h3>
+            <p><code>GET https://barataoapi.herokuapp.com/stations</code></p>
+            <pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://barataoapi.herokuapp.com/stations&quot;</span>
+-H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span></code></pre>
+            <blockquote>
+               <p>O comando acima retorna um JSON estruturado assim:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;48861f4d-7ac2-40e2-b6cb-43090cd099c4&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Auto Posto Original 415&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SHCS 415 Lote 03 PLL, Asa Sul&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Brasília&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cep&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;72298-000&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;BR&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:42:18.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:42:18.000Z&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2854a793-e359-49fa-b5f3-5089193295fe&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Auto Posto Original 409&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SHCS 409 Bloco A PLL, Asa Sul&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;DF&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Brasília&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cep&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;70258-010&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;BR&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:42:40.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2022-01-03T11:42:40.000Z&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span></code></pre>
+            <h1 id="banco-de-dados">Banco de dados</h1>
+            <p>API Baratão: Essa API foi escrita em javascript e será necessário adapta-la para a linguagem escolhida. Será necessário crar algumas tabelas no banco de dados e fazer a relação com usuário.</p>
+            <p>Tabelas:</p>
+            <ul>
+               <li>devices: Tabela que contem os dispositivos cadastrados de cada usuário.</li>
+               <li>fuels: Combustíveis cadastrados</li>
+               <li>stations: Postos credênciados</li>
+               <li>users: Usuários</li>
+               <li>vouchers: Cupons comprados</li>
+            </ul>
+            <h2 id="devices-1">Devices</h2>
+            <ul>
+               <li>id: uuid</li>
+               <li>ownerId: UUID (ID do usuário)</li>
+               <li>deviceId: varchar</li>
+               <li>deviceName: varchar </li>
+               <li>confirmed: boolean</li>
+               <li>created_at: timestamp</li>
+               <li>updated_at: timestamp</li>
+            </ul>
+            <h2 id="fuels">Fuels</h2>
+            <ul>
+               <li>id: uuid</li>
+               <li>name: varchar</li>
+               <li>regularPrice: varchar</li>
+               <li>price: varchar </li>
+               <li>region: varchar</li>
+               <li>imageUrl: varchar (Imagem do combustível)</li>
+               <li>popular: boolean</li>
+               <li>created_at: timestamp</li>
+               <li>updated_at: timestamp</li>
+            </ul>
+            <h2 id="stations">Stations</h2>
+            <ul>
+               <li>id: uuid</li>
+               <li>name: varchar</li>
+               <li>address: varchar</li>
+               <li>state: varchar </li>
+               <li>city: varchar</li>
+               <li>cep: varchar</li>
+               <li>country: boolean</li>
+               <li>created_at: timestamp</li>
+               <li>updated_at: timestamp</li>
+            </ul>
+            <h2 id="users">Users</h2>
+            <ul>
+               <li>id: uuid</li>
+               <li>name: varchar</li>
+               <li>email: varchar</li>
+               <li>cpf: varchar </li>
+               <li>phone: varchar</li>
+               <li>password: varchar</li>
+               <li>avatarUrl: varchar (DEFAULT: NULL)</li>
+               <li>created_at: timestamp</li>
+               <li>updated_at: timestamp</li>
+            </ul>
+            <h2 id="vouchers">Vouchers</h2>
+            <ul>
+               <li>id: uuid</li>
+               <li>fuelId: uuid (ID do combustível)</li>
+               <li>ownerId: uuid (ID do usuário)</li>
+               <li>name: varchar </li>
+               <li>liters: varchar</li>
+               <li>value: varchar</li>
+               <li>region: varchar</li>
+               <li>fuelImage: varchar (Imagem do combustível)</li>
+               <li>created_at: timestamp</li>
+               <li>updated_at: timestamp</li>
+            </ul>
+            <h1 id="errors">Errors</h1>
+            <p>Erros que podem acontecer durante a execução dos comandos:</p>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Error Code</th>
+                     <th>Meaning</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>400</td>
+                     <td>Bad Request -- Problema na busca dos dados</td>
+                  </tr>
+                  <tr>
+                     <td>401</td>
+                     <td>Unauthorized -- Token inválido</td>
+                  </tr>
+                  <tr>
+                     <td>404</td>
+                     <td>Not Found -- Não encontrado</td>
+                  </tr>
+                  <tr>
+                     <td>500</td>
+                     <td>Internal Server Error -- Problema com o servidor</td>
+                  </tr>
+                  <tr>
+                     <td>503</td>
+                     <td>Service Unavailable -- Serviço temporariamente em manutenção</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class=dark-box>
+            <div class=lang-selector>
+               <a href=# data-language-name="bash">bash</a>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
